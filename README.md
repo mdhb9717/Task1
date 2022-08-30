@@ -169,22 +169,23 @@ web applications running on Nginx. <br>
     - `$sudo nano /etc/nginx/sites-available/project`
     
   + 4.The following configuration file contains the recommended settings for Laravel applications on Nginx:
-      - [My Config File](laravel)   <be>
-    Copy this content to your `/etc/nginx/sites-available/project` file and, if
+      - [My Config File](laravel)   <br>
+      
+Copy this content to your `/etc/nginx/sites-available/project` file and, if
 necessary, adjust the highlighted values to align with your own configuration.
 Save and close the file when you’re done editing.
 
    + 5.To activate the new virtual host configuration file, create a symbolic link to project in `sites-enabled`:
-    - `$sudo ln -s /etc/nginx/sites-available/project /etc/nginx/sites-enabled/`
+        - `$sudo ln -s /etc/nginx/sites-available/project /etc/nginx/sites-enabled/`
     
    + 6.To confirm that the configuration doesn’t contain any syntax errors, you can use:
-    - `$sudo nginx -t`
+        - `$sudo nginx -t`
     
    + 7.To apply the changes, reload Nginx with:
-    - `$sudo systemctl reload nginx`
+        - `$sudo systemctl reload nginx`
     
    + 8.Now go to your browser and access the application using the server’s domain name or IP address, as defined by the `server_name` directive in your configuration file:
-    - `http://server_domain_or_IP`
+        - `http://server_domain_or_IP`
 
 # Sourse
   + [Installing Composer on Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-composer-on-ubuntu-22-04)
