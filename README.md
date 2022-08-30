@@ -95,6 +95,7 @@ basic configuration and confirm that you’re able to connect to the database.
    + 2.open project in GitHub
    
    + 3.get ssh from this part (detail of making ssh key in the end)
+   
       ![ssh key](img/3.png)
    
    + 4.Clone the project:
@@ -116,6 +117,7 @@ variables that require immediate attention:
 + `DB_DATABASE`: Database name.
 + `DB_USERNAME`: Username to connect to the database.
 + `DB_PASSWORD`: Password to connect to the database.   <br>
+
 By default, these values are configured for a local development environment that
 uses Homestead, a prepackaged Vagrant box provided by Laravel. We’ll change
 these values to reflect the current environment settings of our example
@@ -143,6 +145,7 @@ The following .env file sets up our example application for development:
 + `DB_DATABASE=db_name`
 + `DB_USERNAME=travellist_user`
 + `DB_PASSWORD=password`   <br>
+
 Adjust your variables accordingly. When you are done editing, save
 and close the file to keep your changes. If you’re using nano, you can do that
 with CTRL+X, then Y and Enter to confirm.
