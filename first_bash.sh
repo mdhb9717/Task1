@@ -43,6 +43,7 @@ git clone git@github.com:mdhb9717/laravel.git
 cd laravel
 sudo touch .env
 sudo cp .env.example .env
+sudo apt install composer
 composer update
 
 #configuring database
