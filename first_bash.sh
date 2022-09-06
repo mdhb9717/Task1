@@ -43,6 +43,7 @@ git clone git@github.com:mdhb9717/laravel.git
 cd laravel
 sudo touch .env
 sudo cp .env.example .env
+composer update
 
 #configuring database
 env_file=".env"
@@ -54,6 +55,7 @@ sudo sed -i "s/DB_PASSWORD=/DB_PASSWORD=$passwddb/g" $env_file
 #setting up nginx
 cd ~
 sudo mv ~/laravel /var/www/laravel
+php artisan migrate
 
 #giving access to storage and cache
 sudo chown -R www-data.www-data /var/www/laravel/storage
@@ -70,3 +72,7 @@ sudo nginx -t
 
 #apply changes & reloding nginx
 sudo systemctl reload nginx
+
+#Generate your application encryption key
+cd /var/www/laravel
+sudo php artisan key:generate
