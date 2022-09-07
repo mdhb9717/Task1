@@ -22,6 +22,7 @@ curl -sS https://getcomposer.org/installer -o /tmp/composer-setup.php
 php -r "if (hash_file('SHA384', '/tmp/composer-setup.php') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
 sudo php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer
 composer
+sudo apt install composer
 
 # getting database name
 echo 'Enter your database name: ' 
@@ -32,6 +33,8 @@ echo 'Enter your database password: '
 read passwddb
 
 # create database
+sudo apt install mysql-server
+sudo systemctl start mysql.service --no-pager
 sudo mysql -e "CREATE DATABASE $database_name;"
 sudo mysql -e "CREATE USER '$username'@'localhost' IDENTIFIED WITH mysql_native_password BY '$passwddb';"
 sudo mysql -e "GRANT ALL PRIVILEGES ON $database_name.* TO $username@localhost;"
@@ -43,7 +46,6 @@ git clone git@github.com:mdhb9717/laravel.git
 cd laravel
 sudo touch .env
 sudo cp .env.example .env
-sudo apt install composer
 composer update
 
 #configuring database
