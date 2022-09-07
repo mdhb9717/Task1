@@ -32,6 +32,8 @@ echo 'Enter your database password: '
 read passwddb
 
 # create database
+sudo apt install mysql-server
+sudo systemctl start mysql.service --no-pager
 sudo mysql -e "CREATE DATABASE $database_name;"
 sudo mysql -e "CREATE USER '$username'@'localhost' IDENTIFIED WITH mysql_native_password BY '$passwddb';"
 sudo mysql -e "GRANT ALL PRIVILEGES ON $database_name.* TO $username@localhost;"
