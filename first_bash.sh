@@ -15,17 +15,17 @@ systemctl status nginx --no-pager
 
 # installing php required modules
 sudo apt install software-properties-common ca-certificates lsb-release apt-transport-https
-LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php
+sudo LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php
 sudo apt update
 sudo apt install --no-install-recommends php8.1
 sudo apt-get install -y php8.1-cli php8.1-common php8.1-mysql php8.1-zip php8.1-gd php8.1-mbstring php8.1-curl php8.1-xml php8.1-bcmath
 
 # installing composer
+cd ~
 curl -sS https://getcomposer.org/installer -o /tmp/composer-setup.php
-php -r "if (hash_file('SHA384', '/tmp/composer-setup.php') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+sudo HASH=`curl -sS https://composer.github.io/installer.sig`
+sudo php -r "if (hash_file('SHA384', '/tmp/composer-setup.php') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
 sudo php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer
-composer
-sudo apt install composer
 
 # getting database name
 echo 'Enter your database name: ' 
