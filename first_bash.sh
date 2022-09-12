@@ -57,7 +57,7 @@ sudo sed -i "s/DB_PASSWORD=/DB_PASSWORD=$passwddb/g" $env_file
 cd ~
 sudo mv ~/laravel /var/www/laravel
 cd /var/www/laravel
-php artisan migrate
+sudo php artisan migrate
 
 #giving access to storage and cache
 sudo chown -R www-data.www-data /var/www/laravel/storage
