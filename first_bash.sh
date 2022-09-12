@@ -30,20 +30,12 @@ php -r "if (hash_file('SHA384', '/tmp/composer-setup.php') === '$HASH') { echo '
 sudo php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer
 composer
 
-# getting database name
-echo 'Enter your database name: ' 
-read database_name
-echo 'Enter your username: '
-read username
-echo 'Enter your database password: '
-read passwddb
-
 # create database
 sudo apt install mysql-server
 sudo systemctl start mysql.service --no-pager
-sudo mysql -e "CREATE DATABASE $database_name;"
-sudo mysql -e "CREATE USER '$username'@'localhost' IDENTIFIED WITH mysql_native_password BY '$passwddb';"
-sudo mysql -e "GRANT ALL PRIVILEGES ON $database_name.* TO $username@localhost;"
+sudo mysql -e "CREATE DATABASE $1;"
+sudo mysql -e "CREATE USER '$2'@'localhost' IDENTIFIED WITH mysql_native_password BY '$3';"
+sudo mysql -e "GRANT ALL PRIVILEGES ON $1.* TO $2@localhost;"
 
 # Get Laravael Project from git hub 
 git clone git@github.com:mdhb9717/laravel.git
