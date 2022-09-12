@@ -5,7 +5,7 @@ cd ~
 sudo apt update
 
 # installing nginx
-sudo apt install nginx
+sudo apt install nginx -y
 
 # adjusting firewall to nginx
 sudo ufw allow 'Nginx HTTP'
@@ -14,16 +14,16 @@ sudo ufw allow 'Nginx HTTP'
 systemctl status nginx --no-pager
 
 # installing php required modules
-sudo apt install software-properties-common ca-certificates lsb-release apt-transport-https
-sudo LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php
+sudo apt install software-properties-common ca-certificates lsb-release apt-transport-https -y
+sudo LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php -y
 sudo apt update
-sudo apt install --no-install-recommends php8.1
-sudo apt-get install -y php8.1-cli php8.1-common php8.1-mysql php8.1-gd php8.1-mbstring php8.1-curl php8.1-xml php8.1-bcmath
+sudo apt install --no-install-recommends php8.1 -y
+sudo apt-get install -y php8.1-cli php8.1-common php8.1-mysql php8.1-gd php8.1-mbstring php8.1-curl php8.1-xml php8.1-bcmath -y
 
 # installing composer
 cd ~
-sudo apt install php-cli unzip
-sudo apt install curl
+sudo apt install php-cli unzip -y
+sudo apt install curl -y
 curl -sS https://getcomposer.org/installer -o /tmp/composer-setup.php
 HASH=`curl -sS https://composer.github.io/installer.sig`
 php -r "if (hash_file('SHA384', '/tmp/composer-setup.php') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
@@ -31,14 +31,14 @@ sudo php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=compose
 composer
 
 # create database
-sudo apt install mysql-server
+sudo apt install mysql-server -y
 sudo systemctl start mysql.service --no-pager
 sudo mysql -e "CREATE DATABASE $1;"
 sudo mysql -e "CREATE USER '$2'@'localhost' IDENTIFIED WITH mysql_native_password BY '$3';"
 sudo mysql -e "GRANT ALL PRIVILEGES ON $1.* TO $2@localhost;"
 
 # Get Laravael Project from git hub 
-git clone git@github.com:mdhb9717/laravel.git
+git clone git@github.com:mdhb9717/laravel.git -y
 
 # go to project directory and make .env
 cd laravel
