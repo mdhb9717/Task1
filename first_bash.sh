@@ -56,6 +56,7 @@ sudo sed -i "s/DB_PASSWORD=/DB_PASSWORD=$passwddb/g" $env_file
 #setting up nginx
 cd ~
 sudo mv ~/laravel /var/www/laravel
+cd /var/www/laravel
 php artisan migrate
 
 #giving access to storage and cache
