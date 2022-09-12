@@ -22,10 +22,13 @@ sudo apt-get install -y php8.1-cli php8.1-common php8.1-mysql php8.1-gd php8.1-m
 
 # installing composer
 cd ~
+sudo apt install php-cli unzip
+sudo apt install curl
 curl -sS https://getcomposer.org/installer -o /tmp/composer-setup.php
-sudo HASH=`curl -sS https://composer.github.io/installer.sig`
-sudo php -r "if (hash_file('SHA384', '/tmp/composer-setup.php') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+HASH=`curl -sS https://composer.github.io/installer.sig`
+php -r "if (hash_file('SHA384', '/tmp/composer-setup.php') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
 sudo php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer
+composer
 
 # getting database name
 echo 'Enter your database name: ' 
