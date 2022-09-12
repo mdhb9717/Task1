@@ -38,7 +38,7 @@ sudo mysql -e "CREATE USER '$2'@'localhost' IDENTIFIED WITH mysql_native_passwor
 sudo mysql -e "GRANT ALL PRIVILEGES ON $1.* TO $2@localhost;"
 
 # Get Laravael Project from git hub 
-git clone git@github.com:mdhb9717/laravel.git -y
+git clone git@github.com:mdhb9717/laravel.git
 
 # go to project directory and make .env
 cd laravel
