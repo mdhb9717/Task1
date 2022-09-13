@@ -50,9 +50,9 @@ composer update
 #configuring database
 env_file=".env"
 sudo sed -i "s/DB_HOST=127.0.0.1/DB_HOST=localhost/g" $env_file
-sudo sed -i "s/DB_DATABASE=laravel/DB_DATABASE=$database_name/g" $env_file
-sudo sed -i "s/DB_USERNAME=root/DB_USERNAME=$username/g" $env_file
-sudo sed -i "s/DB_PASSWORD=/DB_PASSWORD=$passwddb/g" $env_file
+sudo sed -i "s/DB_DATABASE=laravel/DB_DATABASE=$1/g" $env_file
+sudo sed -i "s/DB_USERNAME=root/DB_USERNAME=$2/g" $env_file
+sudo sed -i "s/DB_PASSWORD=/DB_PASSWORD=$3/g" $env_file
 
 #setting up nginx
 cd ~
