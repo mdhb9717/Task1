@@ -16,9 +16,10 @@ systemctl status nginx --no-pager
 # installing php required modules
 sudo apt install software-properties-common ca-certificates lsb-release apt-transport-https -y
 sudo LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php -y
+sudo add-apt-repository ppa:ondrej/php -y
 sudo apt update
 sudo apt install --no-install-recommends php8.1 -y
-sudo apt-get install -y php8.1-cli php8.1-common php8.1-mysql php8.1-gd php8.1-mbstring php8.1-curl php8.1-xml php8.1-bcmath -y
+sudo apt install php8.1-fpm php8.1-common php8.1-mysql php8.1-xml php8.1-xmlrpc php8.1-curl php8.1-gd php8.1-imagick php8.1-cli php8.1-dev php8.1-imap php8.1-mbstring php8.1-soap php8.1-zip php8.1-bcmath -y
 
 # installing composer
 cd ~
